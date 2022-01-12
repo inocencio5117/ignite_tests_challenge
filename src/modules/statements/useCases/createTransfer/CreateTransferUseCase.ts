@@ -4,7 +4,7 @@ import { Statement } from "../../entities/Statement";
 import { IStatementsRepository } from "../../repositories/IStatementsRepository";
 import { ICreateStatementDTO } from "../createStatement/ICreateStatementDTO";
 import { GetStatementOperationError } from "../getStatementOperation/GetStatementOperationError";
-import { TransferError } from "./TransferError";
+import { CreateTransferError } from "./CreateTransferError";
 
 @injectable()
 class CreateTransferUseCase {
@@ -35,7 +35,7 @@ class CreateTransferUseCase {
     });
 
     if (sender.balance < amount) {
-      throw new TransferError();
+      throw new CreateTransferError();
     }
     console.log(sender);
 
